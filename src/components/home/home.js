@@ -7,7 +7,7 @@ const HeaderHandler = (headers) => {
     const [toggleState, setToggleState] = useState(1);
     return(
         headers.map((header) => 
-            <li onClick={() => setToggleState(header.id)} className={toggleState === header.id ? `${styles.navLi} ${styles.activeText}`: styles.navLi} key={header.id}><Navigation  title={header.name} logo={header.logo} header={header.id} activeState={toggleState}/></li>
+            <li onClick={() => setToggleState(header.id)} className={toggleState === header.id ? `${styles.navLi} ${styles.activeText}`: styles.navLi} key={header.id}><Navigation  title={header.name} logoBlue={header.logoBlue} logoBlack={header.logoBlack} header={header.id} activeState={toggleState}/></li>
         )
     )
 }

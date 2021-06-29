@@ -6,16 +6,14 @@ class Navigation extends React.Component {
     
 
     render() {
-        const { title, header, logo, activeState } = this.props
-
-        const inLineStyles = {
-            activePath: {
-                '& path':{
-                fill: activeState === header ? 'blue' : 'black'},
+        const { title, header, logoBlue, logoBlack, activeState } = this.props
+        
+        const svgHandler = () => {
+            if (activeState === header) {
+                return parse(logoBlue.join(""))  
+            } else {
+                return parse(logoBlack.join(""))   
             }
-        }
-        const createMarkup = (l) => {
-            return {__html: `${l}`};
         }
         
         return(
@@ -24,15 +22,8 @@ class Navigation extends React.Component {
                     <div className={styles.navItemImgContainer}>
                         <div className={styles.navItemImgWrap}>
                             {/* <img width="12" height="12" src={"./images/home.png"}></img> */}
-                            <svg className={inLineStyles.activePath} width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                {
-                                    logo.map((l) => {
-                                        
-                                        return (
-                                            parse(l)
-                                        )
-                                    })
-                                }
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                {svgHandler()}
                                 
                             </svg>
                         </div>
