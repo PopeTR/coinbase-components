@@ -8,12 +8,15 @@ class Navigation extends React.Component {
     render() {
         const { title, header, logo, activeState } = this.props
 
-        // const inLineStyles = {
-        //     activePath: {
-        //         fill: activeState === header ? 'blue' : 'black',
-        //     }
-        // }
-        console.log(activeState)
+        const inLineStyles = {
+            activePath: {
+                '& path':{
+                fill: activeState === header ? 'blue' : 'black'},
+            }
+        }
+        const createMarkup = (l) => {
+            return {__html: `${l}`};
+        }
         
         return(
             <a className={styles.navItemLink}>
@@ -21,10 +24,13 @@ class Navigation extends React.Component {
                     <div className={styles.navItemImgContainer}>
                         <div className={styles.navItemImgWrap}>
                             {/* <img width="12" height="12" src={"./images/home.png"}></img> */}
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <svg className={inLineStyles.activePath} width="12" height="12" viewBox="0 0 12 12" fill="none">
                                 {
                                     logo.map((l) => {
-                                        return parse(`<path style=${{fill: activeState === header ? 'blue' : 'black'}} ${l}</path>`)
+                                        
+                                        return (
+                                            parse(l)
+                                        )
                                     })
                                 }
                                 

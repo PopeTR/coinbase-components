@@ -118,6 +118,10 @@ html {
   --red100: rgb(51, 0, 4);
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
