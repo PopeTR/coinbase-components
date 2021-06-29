@@ -32,6 +32,12 @@
   margin-right: 80px;
 }
 
+.navList {
+  margin: 18px 8px;
+  list-style-type: none;
+  padding: 0px;
+}
+
 .navLi {
   margin-bottom: 22px;
   display: flex;
